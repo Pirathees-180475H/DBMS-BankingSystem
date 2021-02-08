@@ -99,12 +99,11 @@ require "../loginCheck.php";
                             <a title="Landing Page" href="events.php" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Event</span></a>
                         </li>
                         <li>
-                            <a class="has-arrow" href="all-professors.php" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Professors</span></a>
+                            <a class="has-arrow" href="all-professors.php" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Employees</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Professors" href="all-professors.php"><span class="mini-sub-pro">All Professors</span></a></li>
-                                <li><a title="Add Professor" href="add-professor.php"><span class="mini-sub-pro">Add Professor</span></a></li>
-                                <li><a title="Edit Professor" href="edit-professor.php"><span class="mini-sub-pro">Edit Professor</span></a></li>
-                                <li><a title="Professor Profile" href="professor-profile.php"><span class="mini-sub-pro">Professor Profile</span></a></li>
+                                <li><a title="All Professor" href="../employee/all-employee.php"><span class="mini-sub-pro">All Employee</span></a></li>
+                                <li><a title="Add Professor" href="../employee/add-employee.php"><span class="mini-sub-pro">Add Employee</span></a></li>
+                                <li><a title="Edit Professor" href="../employee/select-employee.php"><span class="mini-sub-pro">Edit Employee</span></a></li>
                             </ul>
                         </li>
                         <li>

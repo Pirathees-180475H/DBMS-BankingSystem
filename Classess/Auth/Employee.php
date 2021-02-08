@@ -17,6 +17,7 @@ class Employee extends User implements Staff
         parent::__construct($email, $nic, $fname, $mobileNo, $branchCode, $DOB, $currentAddress, $dp, $joinedDate);
         $this->id = $id;
         $this->designation = $designation;
+
     }
 
     public static function login($userName, $password): string{
@@ -98,6 +99,44 @@ class Employee extends User implements Staff
             return false;
         }
     }
+
+
+      // add employee
+    public function register($Fname,$nic,$email,$password,$branchCode,$designation,$address,$dob,$dp,$currentDate,$mobileno){
+
+        $sql2="INSERT INTO employee (name,NIC,email,password,branchCode,designation,mobileNo,Address,DOB,dp,JoinedDate) VALUES('$Fname','$nic','$email','$password','$branchCode',
+          '$designation','$mobileno','$address','$dob','$dp','$currentDate')";
+
+        $stmt = (new Connection)->connect()->prepare($sql2);
+        $result=$stmt->execute();
+        if ($result){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    //Edit Employee
+    public function edit($updatedDate){
+    //    $sql = "UPDATE customer SET NIC='".$this->getNIC()."',email='".$this->getMail()."',name='".$this->getFname()."',mobileNo='".$this->getmobileNo()."',tempAddress='".$this->gettempAddress()."',permanantAddress='".$this->getAddress()."',Job='".$this->getJob()."',officialAddress='".$this->getOfficialAddress()."',DOB='".$this->getDOB()."',dp='".$this->getDp()."',openedBy='".$this->getOpenedBy()."',openedBranch='".$this->getBranchCode()."',joinedDate='".$this->getJoinedDate()."',updatedDate='".$updatedDate."',leftDate=null WHERE NIC='".$this->getNIC()."'";
+
+
+        $sql = "UPDATE employee SET email='".$this->getMail()."',name='".$this->getFname()."',mobileNo='".$this->getmobileNo()."',DOB='".$this->getDOB()."',Address='".$this->getAddress()."'
+        WHERE NIC='".$this->getNIC()."' ";
+
+        echo $sql;
+
+        $stmt = (new Connection)->connect()->prepare($sql);
+        $result=$stmt->execute();
+        if ($result){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
 }
 
 ?>
