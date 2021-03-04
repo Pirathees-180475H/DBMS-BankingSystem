@@ -1,127 +1,97 @@
 (function ($) {
  "use strict";
  // Validation for order form
-		$(".add-professors").validate(
-		{					
-			rules:
-			{	
-				firstname:
-				{
-					required: true
-				},
-				lastname:
-				{
-					required: true
-				},
-				address:
-				{
-					required: true
-				},
-				department:
-				{
-					required: true
-				},
-				postcode:
-				{
-					required: true
-				},
-				imageico:
-				{
-					required: true
-				},
-				mobileno:
-				{
-					required: true
-				},
-				description:
-				{
-					required: true
-				},
-				gender:
-				{
-					required: true
-				},
-				country:
-				{
-					required: true
-				},
-				state:
-				{
-					required: true
-				},
-				city:
-				{
-					required: true
-				},
-				website:
-				{
-					required: true
-				},
-				finish:
-				{
-					required: true
-				}
+ $(".add-professors").validate(
+	{					
+		rules:
+		{	
+			fullname:
+			{
+				required: true
 			},
-			messages:
-			{	
-				firstname:
-				{
-					required: 'Please enter first name'
-				},
-				lastname:
-				{
-					required: 'Please enter last name'
-				},
-				address:
-				{
-					required: 'Please enter your address'
-				},
-				department:
-				{
-					required: 'Please enter department'
-				},
-				postcode:
-				{
-					required: 'Please enter postcode'
-				},
-				imageico:
-				{
-					required: 'Please upload image'
-				},
-				mobileno:
-				{
-					required: 'Please enter mobile number'
-				},
-				description:
-				{
-					required: 'Please enter description'
-				},
-				gender:
-				{
-					required: 'Please select gender'
-				},
-				country:
-				{
-					required: 'Please select country'
-				},
-				state:
-				{
-					required: 'Please select state'
-				},
-				city:
-				{
-					required: 'Please select city'
-				},
-				website:
-				{
-					required: 'Please enter website url'
-				},
-				finish:
-				{
-					required: 'Please select date of birth'
-				}
-			},					
+			address:
+			{
+				required: true
+			},
+			mobileNo:
+			{
+				required: true
+			},
+			NIC:
+			{
+				required: true
+			},
+			dob:
+			{
+				required: true
+			},
+			email:
+			{
+				required: true
+			},
+			job:
+			{
+				required: true
+			},
+			branchCode:
+			{
+				required: true
+			},
+			password:
+			{
+				required: true,
+				minlength: 3,
+				maxlength: 20
+			},
+			confirmpassword:
+			{
+				required: true,
+				minlength: 3,
+				maxlength: 20
+			}
+		},
+		messages:
+		{	
+			fullname:
+			{
+				required: 'Please enter full name'
+			},
 			
+			address:
+			{
+				required: 'Please enter your address'
+			},
+			mobileNo:
+			{
+				required: 'Please enter Mobile Number'
+			},
+			dob:
+			{
+				required: 'Please enter Date of Birth'
+			},
+			email:
+			{
+				required: 'Please enter your email address',
+				email: 'Please enter a VALID email address'
+			},
+			job:
+			{
+				required: 'Please select the Designation'
+			},
+			branchCode:
+			{
+				required: 'Please enter the Branch Code'
+			},
+			password:
+			{
+				required: 'Please enter the password'
+			},
+			confirmpassword:
+			{
+				required: 'Please confirm the password'
+			},
+			
+		},			
 			errorPlacement: function(error, element)
 			{
 				error.insertAfter(element.parent());
@@ -186,23 +156,24 @@
 		});
  
  // Validation for order form
-		$(".addcourse").validate(
+		$(".addaccount").validate(
 		{					
 			rules:
 			{	
-				coursename:
+				nic:
 				{
 					required: true
 				},
-				finish:
+				branch:
 				{
 					required: true
 				},
-				duration:
+				balance:
 				{
-					required: true
+					required: true,
+					min:0
 				},
-				price:
+				acctype:
 				{
 					required: true
 				},
@@ -250,21 +221,21 @@
 			},
 			messages:
 			{	
-				coursename:
+				nic:
 				{
-					required: 'Please enter course name'
+					required: 'Please enter Customer NIC'
 				},
-				finish:
+				branch:
 				{
-					required: 'Please select date of birth'
+					required: 'You Change the source.'
 				},
-				duration:
+				balance:
 				{
-					required: 'Please enter duration'
+					required: 'Enter initial balance'
 				},
-				price:
+				acctype:
 				{
-					required: 'Please enter price'
+					required: 'Select type of account'
 				},
 				imageico:
 				{
@@ -311,6 +282,371 @@
 				error.insertAfter(element.parent());
 			}
 		});
+
+		// Validation for login form
+		$(".add-branch").validate(
+			{					
+				rules:
+				{	
+					branch_name:
+					{
+						required: true
+					},
+					branch_code:
+					{
+						required: true
+					},
+					branch_type:
+					{
+						required: true
+						
+					},
+					contact:
+					{
+						required: true,
+						minlength: 10,
+						maxlength: 10
+	
+					},
+					status:
+					{
+						required: true
+					},
+					open:
+					{
+						required: true
+					},
+					branch_address:
+					{
+						required: true
+					}
+				},
+				messages:
+				{	
+					branch_name:
+					{
+						required: "Please Type Branch Name"
+					},
+					branch_code:
+					{
+						required: "Please Enter the BranchCode "
+					},
+					branch_type:
+					{
+						required: "Please Select the Branch Type"
+					},
+					contact:
+					{
+						required: "Please Enter the Branch Contact number",
+						minlength : "Please Enter valid Branch Contact number",
+						maxlength : "Please Enter valid Branch Contact number"
+					},
+					status:
+					{
+						required: "Please Select the Status of Branch"
+					},
+					open:
+					{
+						required: "Please Select the Open date of Branch"
+					},
+					branch_address:
+					{
+						required: "Please Enter the Branch address"
+					}
+				},					
+				
+				errorPlacement: function(error, element)
+				{
+					error.insertAfter(element.parent());
+				}
+			});
+
+
+			// Validation for login form
+		$(".addaccountFD").validate(
+			{					
+				rules:
+				{	
+					sacid:
+					{
+						required: true
+					},
+					balance:
+					{
+						required: true
+					},
+					acctype:
+					{
+						required: true						
+					}
+				},
+				messages:
+				{	
+					sacid:
+					{
+						required: "Saving Account ID Required"
+					},
+					balance:
+					{
+						required: "Enter Amount"
+					},
+					acctype:
+					{
+						required: "Please select option"
+					}
+				},					
+				
+				errorPlacement: function(error, element)
+				{
+					error.insertAfter(element.parent());
+				}
+			});
+
+				// Validation for login form
+		$(".addpayment").validate(
+			{					
+				rules:
+				{	
+					loanID:
+					{
+						required: true
+					},
+					payment:
+					{
+						required: true
+					}
+				},
+				messages:
+				{	
+					loanID:
+					{
+						required: "Please type Loan ID here.."
+					},
+					payment:
+					{
+						required: "Please type Amount you pay."
+					}
+				},					
+				
+				errorPlacement: function(error, element)
+				{
+					error.insertAfter(element.parent());
+				}
+			});
+
+			$(".addpaymentAcc").validate(
+				{					
+					rules:
+					{	
+						loanID:
+						{
+							required: true
+						},
+						payment:
+						{
+							required: true
+						},
+						FaccID:
+						{
+							required : true
+						}						
+					},
+					messages:
+					{	
+						loanID:
+						{
+							required: "Please type Loan ID here.."
+						},
+						payment:
+						{
+							required: "Please type Amount you pay."
+						},						
+						FaccID:
+						{
+							required : "Select Your Account."
+						}	
+					},					
+					
+					errorPlacement: function(error, element)
+					{
+						error.insertAfter(element.parent());
+					}
+				});
+
+			$(".addaccountloan").validate(
+				{					
+					rules:
+					{	
+						nic:
+						{
+							required: true
+						},
+						balance:
+						{
+							required: true
+						},
+						reason:
+						{
+							required: true						
+						},
+						durationInMonth:{
+							required: true	
+						},
+						planId:{
+							required: true	
+						}
+					},
+					messages:
+					{	
+						nic:
+						{
+							required: "NIC ID Required."
+						},
+						balance:
+						{
+							required: "Enter Amount."
+						},
+						reason:
+						{
+							required: "Please Write description for Your request."
+						},
+						durationInMonth:{
+							required: "Type Duration in Month"	
+						},
+						planId:{
+							required: "Please Select Your loan Plan ID."	
+						}
+					},					
+					
+					errorPlacement: function(error, element)
+					{
+						error.insertAfter(element.parent());
+					}
+				});
+
+	// Validation for login form
+			$(".edit-branch").validate(
+				{					
+					rules:
+					{	
+						branch_name:
+						{
+							required: true
+						},
+						branch_type:
+						{
+							required: true
+							
+						},
+						contact:
+						{
+							required: true,
+							minlength: 10,
+							maxlength: 10
+		
+						},
+						branch_address:
+						{
+							required: true
+						}
+					},
+					messages:
+					{	
+						branch_name:
+						{
+							required: "Please Type Branch Name"
+						},
+						branch_type:
+						{
+							required: "Please Select the Branch Type"
+						},
+						contact:
+						{
+							required: "Please Enter the Branch Contact number",
+							minlength : "Please Enter valid Branch Contact number",
+							maxlength : "Please Enter valid Branch Contact number"
+						},
+						branch_address:
+						{
+							required: "Please Enter the Branch address"
+						}
+					},					
+					
+					errorPlacement: function(error, element)
+					{
+						error.insertAfter(element.parent());
+					}
+				});
+
+		$(".depositMoney").validate(
+			{					
+				rules:
+				{	
+					accID:
+					{
+						required: true
+					},
+					amountOfMoney:
+					{
+						required: true
+					}
+				},
+				messages:
+				{						
+					accID:
+					{
+						required: "Please enter customer Account No."
+					},
+					amountOfMoney:
+					{
+						required: "Please enter amount of transfer money."
+					}
+				},					
+				
+				errorPlacement: function(error, element)
+				{
+					error.insertAfter(element.parent());
+				}
+			});
+
+			$(".TransferMoney").validate(
+				{					
+					rules:
+					{	
+						FaccID:
+						{
+							required: true
+						},
+						TaccID:
+						{
+							required: true
+						},
+						amountOfMoney:
+						{
+							required: true
+						}
+					},
+					messages:
+					{						
+						FaccID:
+						{
+							required: "Please enter customer Sender Account No."
+						},
+						TaccID:
+						{
+							required: "Please enter customer To Account No."
+						},
+						amountOfMoney:
+						{
+							required: "Please enter amount of transfer money."
+						}
+					},					
+					
+					errorPlacement: function(error, element)
+					{
+						error.insertAfter(element.parent());
+					}
+				});
 		
 		
 		

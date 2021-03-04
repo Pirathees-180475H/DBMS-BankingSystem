@@ -2,7 +2,9 @@
 namespace Classess\Auth;
 
 require 'autoloader.php';
+include '../messages.php';
 use Includes\DB\Connection;
+use Includes\Plans\LoanPlan;
 
 abstract class User extends Connection{
 
@@ -31,6 +33,18 @@ abstract class User extends Connection{
         session_destroy();
         header("location:index.php");
     }
+
+    public function getLoanPlanIdsAsOptions()
+    {
+        $loanIds = (new LoanPlan())->getLoanIds();
+        $opt = "";
+        foreach ($loanIds as $loanId) {
+            $opt = $opt. "<option value='$loanId'>$loanId</option>";
+        }
+        return $opt;
+    }
+
+    
 
     public static abstract function login($uname, $pass): string;
 
@@ -62,7 +76,7 @@ abstract class User extends Connection{
      * @return NIC
      */
     public function getNIC():String
-    {
+    {   
         return $this->nic;
     }
 
@@ -93,7 +107,7 @@ abstract class User extends Connection{
     /**
      * @return brachCode
      */
-    public function getBranchCode():String
+    public function getBrachCode():String
     {
         return $this->branchCode;
     }
@@ -101,10 +115,26 @@ abstract class User extends Connection{
     /**
      * @return dp
      */
-    public function getDp():String
+    public function getDp()
     {
         return $this->dp;
     }
+    /**
+     * @return left date
+     */
+    public function getLeftDate()
+    {
+        return $this->leftDate;
+    }
+
+    /**
+     * setter
+     */
+    public function setLeftDate($date):void
+    {
+        $this->leftDate = $date;
+    }
+    
     
 }
 
